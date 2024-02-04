@@ -31,10 +31,10 @@ export function UpdatePostForm({
   content: string | null;
 }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [scroll, setScroll] = useState(false);
-  scroll
-    ? (document.body.style.overflow = "hidden")
-    : (document.body.style.overflow = "auto");
+  // const [scroll, setScroll] = useState(false);
+  // scroll
+  //   ? (document.body.style.overflow = "hidden")
+  //   : (document.body.style.overflow = "auto");
 
   return (
     <>
@@ -49,7 +49,7 @@ export function UpdatePostForm({
                 action={async (formData) => {
                   await updatePost.bind(null, id)(formData);
                   setIsEditing(false);
-                  setScroll(false);
+                  // setScroll(false);
                 }}
               >
                 <label className="text-white font-bold">Title</label>
@@ -76,7 +76,7 @@ export function UpdatePostForm({
                   className="p-4 font-bold text-white bg-blue-500 rounded-md w-full"
                   onClick={() => {
                     setIsEditing(false);
-                    setScroll(false);
+                    // setScroll(false);
                   }}
                 >
                   Cancel
@@ -88,7 +88,7 @@ export function UpdatePostForm({
             className="px-4 p-2 font-bold bg-blue-500 rounded-md w-full"
             onClick={() => {
               setIsEditing(true);
-              setScroll(true);
+              // setScroll(true);
             }}
           >
             {edit}
@@ -99,7 +99,7 @@ export function UpdatePostForm({
           className="px-4 p-2 font-bold bg-blue-500 rounded-md"
           onClick={() => {
             setIsEditing(true);
-            setScroll(true);
+            // setScroll(true);
           }}
         >
           {edit}
