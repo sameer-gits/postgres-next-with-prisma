@@ -22,4 +22,9 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  ::selection {
+    color: #000000;
+    background: #ef4444;
+  }
 }
