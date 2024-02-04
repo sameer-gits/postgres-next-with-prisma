@@ -25,9 +25,13 @@ export default function AddPost() {
   return (
     <>
       <div className="sticky w-full text-center top-0 bg-black shadow-2xl">
-        <h1 className="text-3xl font-bold py-10 md:text-4xl">
+        <h1 className="text-3xl font-bold pt-10 md:text-4xl">
           Postgres CRUD APP
         </h1>
+        <p className="text-white/30 pt-2 pb-10 text-center text-balance">
+          No user login/signup, so deleting affects all users, also don't add
+          billions of posts cause It will exceed my $5 database budget. Thanks!
+        </p>
         <form
           className="flex flex-col gap-4 text-black w-full shadow-2xl"
           ref={formRef}
