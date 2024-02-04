@@ -29,7 +29,7 @@ export default function AddPost() {
           Postgres CRUD APP
         </h1>
         <p className="text-white/30 pt-2 pb-10 text-center text-balance">
-          No user login/signup, so deleting affects all users, also don't add
+          No user login/signup, so deleting affects all users, also do not add
           billions of posts cause It will exceed my $5 database budget. Thanks!
         </p>
         <form
