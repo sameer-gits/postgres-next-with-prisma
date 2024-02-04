@@ -1,7 +1,7 @@
 "use client";
 
 import { createPost, deletePost } from "@/app/actions";
-import { useState } from "react";
+import { useRef } from "react";
 import { useFormStatus } from "react-dom";
 
 export function AddButton() {
@@ -16,8 +16,16 @@ export function AddButton() {
 }
 
 export default function AddPost() {
+  const formRef = useRef<HTMLFormElement>(null);
+
   return (
-    <form action={createPost}>
+    <form
+      ref={formRef}
+      action={async (formData) => {
+        await createPost(formData);
+        formRef.current?.reset();
+      }}
+    >
       <input
         type="text"
         name="title"
@@ -48,7 +56,11 @@ export function DeleteButton() {
   const pending = data.pending;
 
   return (
-    <button type="submit" disabled={pending}>
+    <button
+      type="submit"
+      disabled={pending}
+      className="px-4 p-2 bg-red-500 rounded-md"
+    >
       {pending ? <>Deleting...</> : <>Delete</>}
     </button>
   );
