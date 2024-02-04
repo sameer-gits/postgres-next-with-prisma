@@ -1,4 +1,6 @@
 import prisma from "@/lib/prisma";
+import UpdatePost from "./update-post";
+import { DeleteForm } from "./add-post";
 
 // All Post Map
 
@@ -22,12 +24,12 @@ export default async function Posts() {
               <p className="text-gray-500 break-all">{post.content}</p>
             </div>
             <div className="flex gap-4 justify-end items-start">
-              {/* <DeleteButton id={post.id} />
-              <FormUpdatePost
+              <DeleteForm id={post.id} />
+              <UpdatePost
                 id={post.id}
                 title={post.title}
                 content={post.content}
-              /> */}
+              />
             </div>
           </div>
         ))}

@@ -1,7 +1,8 @@
 "use client";
 
-import { createPost } from "@/app/actions";
-import { useFormState, useFormStatus } from "react-dom";
+import { createPost, deletePost } from "@/app/actions";
+import { useState } from "react";
+import { useFormStatus } from "react-dom";
 
 export function AddButton() {
   const data = useFormStatus();
@@ -9,7 +10,7 @@ export function AddButton() {
 
   return (
     <button type="submit" disabled={pending}>
-      Add Post
+      {pending ? <>Adding...</> : <>Add Post</>}
     </button>
   );
 }
@@ -31,5 +32,24 @@ export default function AddPost() {
       />{" "}
       <AddButton />
     </form>
+  );
+}
+
+export function DeleteForm({ id }: { id: string }) {
+  return (
+    <form action={deletePost.bind(null, id)}>
+      <DeleteButton />
+    </form>
+  );
+}
+
+export function DeleteButton() {
+  const data = useFormStatus();
+  const pending = data.pending;
+
+  return (
+    <button type="submit" disabled={pending}>
+      {pending ? <>Deleting...</> : <>Delete</>}
+    </button>
   );
 }
